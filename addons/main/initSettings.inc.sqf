@@ -238,15 +238,6 @@ _category = [_header, localize "str_a3_vehiclerepair1"];
 ] call CBA_fnc_addSetting;
 
 [
-    QGVAR(requireOutsideOfVehicle),
-    "CHECKBOX",
-    [LLSTRING(requireOutsideOfVehicle), LLSTRING(requireOutsideOfVehicle_desc)],
-    _category,
-    true,
-    true
-] call CBA_fnc_addSetting;
-
-[
     QGVAR(allowAddPlateViaRepairVehicle),
     "CHECKBOX",
     [LLSTRING(allowAddPlateViaRepairVehicle), LLSTRING(allowAddPlateViaRepairVehicle_desc)],

@@ -41,7 +41,7 @@ if (_aceInteractionLoaded && _aceRepairLoaded) then {
             // show condition
             'call {
                 if (cursorObject isNotEqualTo _target) exitWith {false};
-                if (GVAR(requireOutsideOfVehicle) && !(isNull objectParent _this)) exitWith {false};
+                if !(isNull objectParent _this) exitWith {false};
                 if NO_PLATES_ALLOWED(_target) exitWith {false};
                 if (local _target && {(_target getVariable [QGVAR(nextSync), -1]) < cba_missionTime}) then {
                     _target setVariable [QGVAR(nextSync), cba_missionTime + 5];

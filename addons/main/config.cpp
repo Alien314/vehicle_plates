@@ -2,8 +2,8 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        units[] = {QGVAR(modulePlate), QGVAR(plateItem)};
-        weapons[] = {QGVAR(plate)};
+        units[] = {QGVAR(modulePlate)};
+        weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cba_main"};
         author = "diwako";
@@ -17,4 +17,3 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 #include "CfgFactionClasses.hpp"
 #include "CfgVehicles.hpp"
-#include "CfgWeapons.hpp"
