@@ -1,0 +1,7 @@
+*.sqf text eol=lf
+*.hpp text eol=lf
+*.cpp text eol=lf
+*.paa binary
+*.psd binary
+*.fsm text eol=crlf
+*.inc text eol=crlf

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="diw_vehicle_plates">
+    <Package name="ace_rearm_compat">
+        <Key ID="STR_diw_vehicle_plates_ace_rearm_compat_allowAddPlateViaAceRearm">
+            <English>Allow plates through ACE rearm framework</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_ace_rearm_compat_allowAddPlateViaAceRearm_desc">
+            <English>Allows players to take plates from ACE rearm vehicles or boxes.</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_ace_rearm_compat_takeAction">
+            <English>"Rearm" vehicle armor plate</English>
+        </Key>
+    </Package>
+</Project>

@@ -1,0 +1,12 @@
+PREP(initPlates);
+PREP(updatePlateUi);
+PREP(initVehicle);
+PREP(handleDamage);
+PREP(handlePlateHit);
+PREP(handleArmorDamage);
+PREP(canAddPlate);
+PREP(addPlateActionStart);
+PREP(addPlateActionCancel);
+PREP(addPlateActionSuccess);
+PREP(addPlate);
+PREP(holdActionAdd);

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="diw_vehicle_plates">
+    <Package name="main">
+        <Key ID="STR_diw_vehicle_plates_main_category">
+            <English>Vehicle Plates System</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_subCategoryGeneral">
+            <English>General</English>
+            <French>Général</French>
+            <Polish>Ogólne</Polish>
+            <Korean>일반</Korean>
+            <Chinese>通用</Chinese>
+            <Chinesesimp>通用</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_subCategoryArmorPlates">
+            <English>Vehicle Plates</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_enable">
+            <English>Enable the whole system</English>
+            <French>Activer l'ensemble du système</French>
+            <Polish>Włącz cały system</Polish>
+            <Korean>전체 시스템 활성화</Korean>
+            <Chinese>系統整體啟用</Chinese>
+            <Chinesesimp>系统整体启用</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlatesTank">
+            <English>Maximum plates for tanks</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlatesAPC">
+            <English>Maximum plates for APCs</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlatesCar">
+            <English>Maximum plates for cars</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlatesAir">
+            <English>Maximum plates for airframes</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlatesShip">
+            <English>Maximum plates for boats</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlates_desc">
+            <English>How many plates can you fit at most into you a vehicle of this type by default</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlates_3den">
+            <English>Amount of plates allowed</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_numMaxPlates_3den_desc">
+            <English>How many plates can you fit at most into you this vehicle, can be more than the CBA setting which dictates the maximum allowed plates in a vehicle. Set to -1 for default</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_fillPlates">
+            <English>Start with full plates</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_fillPlates_desc">
+            <English>Equips the maximum allowed number of plates on mission start</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_Eden_options">
+            <English>Vehicle Plates Options</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_maxPlateHealth">
+            <English>Armor Plate HP</English>
+            <French>Plaque d'armure HP</French>
+            <Polish>HP płyty</Polish>
+            <Korean>방탄판 체력</Korean>
+            <Chinese>防彈插板HP</Chinese>
+            <Chinesesimp>防弹插板HP</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_maxPlateHealth_desc">
+            <English>Max HP of an armor plate</English>
+            <French>HP maximale d'une seule plaque d'armure.</French>
+            <Polish>Maks. HP pojedynczej płyty balistycznej.</Polish>
+            <Korean>방탄판의 최대 체력</Korean>
+            <Chinese>防彈插板最大HP</Chinese>
+            <Chinesesimp>防弹插板最大HP</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_timeToAddPlate">
+            <English>Time to add one plate</English>
+            <French>Temps pour ajouter une plaque</French>
+            <Polish>Czas włożenia płyty</Polish>
+            <Korean>방탄판 삽입 시간</Korean>
+            <Chinese>插板塞入時間</Chinese>
+            <Chinesesimp>插板塞入时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_timeToAddPlate_desc">
+            <English>How long does it take to add one plate to the a vehicle in seconds</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_allowPlateReplace">
+            <English>Allow replacing damaged plate</English>
+            <French>Permettre le remplacement de la plaque endommagée</French>
+            <Polish>Zezwól na zastępowanie uszkodzonych płyt</Polish>
+            <Korean>손상된 방탄판 교체 허용</Korean>
+            <Chinese>允許更換損壞的插板</Chinese>
+            <Chinesesimp>允许更换损坏的插板</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_allowPlateReplace_desc">
+            <English>Allows people to replace damaged plates, the damaged plate will be discarded</English>
+            <French>Permet de remplacer les plaques endommagées, la plaque endommagée étant mise au rebut.</French>
+            <Polish>Zezwól graczom na zastępowanie uszkodzonych płyt nowymi. Te zniszczone znikną.</Polish>
+            <Korean>손상된 방탄판 교체를 허용합니다. 손상된 방탄판은 버려집니다.</Korean>
+            <Chinese>允許玩家更換損壞的插板,更換下的插板將被丟棄</Chinese>
+            <Chinesesimp>允许玩家更换损坏的插板,更换下的插板将被丢弃</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_vehicleBlacklist">
+            <English>Vehicle Blacklist</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_vehicleBlacklist_desc">
+            <English>List of vehicle class names to have plate insertion disabled. (ex. vehicleclassname1, vehicleclassname2)</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateColor">
+            <English>Plate UI color</English>
+            <French>Couleur des plaques dans l'interface</French>
+            <Polish>Kolor płyt w interfejsie</Polish>
+            <Korean>방탄판 UI 색깔</Korean>
+            <Chinese>插板UI顏色</Chinese>
+            <Chinesesimp>插板UI颜色</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_allowHideArmor">
+            <English>Automatically hide plate bars</English>
+            <French>Masque automatiquement les bandes d'armure</French>
+            <Polish>Automatycznie ukrywa paski pancerza</Polish>
+            <Korean>방탄 표시줄 자동 숨기기</Korean>
+            <Chinese>自動隱藏插板條</Chinese>
+            <Chinesesimp>自动隐藏插板条</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_allowHideArmor_desc">
+            <English>Hides the plate bars after a certain time. Will reappear when remounting or getting hit. No button to show it again for now</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_hideUiSeconds">
+            <English>Hide UI timeout</English>
+            <French>Délai de masquage de l'interface utilisateur</French>
+            <Polish>Czas ukrycia UI</Polish>
+            <Korean>UI 시간 경과 숨기기</Korean>
+            <Chinese>隱藏 UI 超時</Chinese>
+            <Chinesesimp>隐藏UI超时</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_hideUiSeconds_desc">
+            <English>When hiding the UI is enabeld, it will use this setting's specified time in seconds before any UI bars start to fade away</English>
+            <French>Lorsque le masquage de l'interface utilisateur est activé, le délai spécifié dans ce paramètre (en secondes) est utilisé avant que les barres de l'interface utilisateur ne commencent à s'effacer.</French>
+            <Polish>Kiedy ukrywanie interfejsu jest włączone, UI zacznie znikać po upłynięciu stosownego czasu</Polish>
+            <Korean>UI 숨기기가 활성화되었을 경우, UI 표시줄이 사라지기 전에 이 설정의 지정된 시간(초 단위)을 사용합니다.</Korean>
+            <Chinese>當隱藏UI被啟用時,它將在任何UI條開始面向別處之前,使用這個設置的指定時間(秒)</Chinese>
+            <Chinesesimp>当隐藏UI被启用时,它将在任何UI条开始面向别处之前,使用这个设置的指定时间(秒)</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_armorHandlingMode">
+            <English>Armor Handling Mode</English>
+            <French>Mode de manipulation de l'armure</French>
+            <Polish>Tryb pancerza</Polish>
+            <Korean>방탄력 취급 모드</Korean>
+            <Chinese>插板控制模式</Chinese>
+            <Chinesesimp>插板控制模式</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_armorHandlingMode_desc">
+            <English>Allows to set the armor handling mode. Arcade will not allow penetration through plates, realism however will and plates will shatter faster when damaged</English>
+            <French>Permet de définir le mode de gestion de l'armure. Le mode Arcade ne permet pas de pénétrer dans les plaques, alors que le mode réaliste le permet et les plaques se brisent plus rapidement lorsqu'elles sont endommagées.</French>
+            <Polish>Określa mechanikę otrzymywania obrażeń. Tryb Rozrywki nie bierze pod uwagę penetracji płyt, natomiast w Realizmie płyty będą mniej chronić, gdy zostaną uszkodzone</Polish>
+            <Korean>방탄력 취급 모드를 설정할 수 있습니다. 아케이드는는 방탄판 관통을 허용하지 않지, 리얼리즘은 방탄판이 손상되면 더 빨리 망가집니다.</Korean>
+            <Chinese>允許設置插板控制模式.街機模式將不允許穿透板塊,但是逼真現實主義會,且板塊在損壞時會更快地破碎</Chinese>
+            <Chinesesimp>允许设置插板控制模式.街机模式将不允许穿透板块,但是逼真现实主义会,且板块在损坏时会更快地破碎</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_armorHandlingMode_arcade">
+            <English>Arcade</English>
+            <French>Arcade</French>
+            <Polish>Rozrywka</Polish>
+            <Korean>아케이드</Korean>
+            <Chinese>街機模式</Chinese>
+            <Chinesesimp>街机模式</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_armorHandlingMode_realism">
+            <English>Realism</English>
+            <French>Réalisme</French>
+            <Polish>Realizm</Polish>
+            <Korean>리얼리즘</Korean>
+            <Chinese>逼真現實主義</Chinese>
+            <Chinesesimp>逼真现实主义</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateThickness">
+            <English>Thickness</English>
+            <French>Épaisseur de la plaque</French>
+            <Polish>Grubość płyt</Polish>
+            <Korean>두께</Korean>
+            <Chinese>厚度</Chinese>
+            <Chinesesimp>厚度</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateThickness_desc">
+            <English>Sets the thickness of each plate. The thicker it is the less likely it is for a bullet to penetrate it before its integrety has reached 0</English>
+            <French>Définit l'épaisseur de chaque plaque. Plus elle est épaisse, moins une balle a de chances de la pénétrer avant que son intégrité n'atteigne 0.</French>
+            <Polish>Ustawia grubość każdej płyty balistycznej. Im grubsza jest, tym mniejsza szansa, że pocisk ją spenetruje zanim jej wytrzymałość spadnie do 0.</Polish>
+            <Korean>각 방탄판의 두께를 설정합니다. 두께가 두꺼울수록 방탄판의 내구도가 0이 되기 전에 탄환이 관통할 확률이 줄어듭니다.</Korean>
+            <Chinese>設定每塊插板的厚度.越厚,子彈在其完整性達到0之前穿透它的可能性就越小.</Chinese>
+            <Chinesesimp>设定每块插板的厚度.越厚,子弹在其完整性达到0之前穿透它的可能性就越小.</Chinesesimp>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_addPlate">
+            <English>Add armor plate</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_requireEngineer">
+            <English>Require engineer</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_requireEngineer_desc">
+            <English>Unit that is to add the armor plates to a vehicle must be an engineer when enabled</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_allowaddplateviarepairvehicle">
+            <English>Allow adding plates through repair vehicles</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_allowaddplateviarepairvehicle_desc">
+            <English>Allows plates being added onto a vehicle if a repair vehicel or station is nearby</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_repairText">
+            <English>Adding armor plate...</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateItemName">
+            <English>Vehicle Armor Plate</English>
+        </Key>
+    </Package>
+</Project>
