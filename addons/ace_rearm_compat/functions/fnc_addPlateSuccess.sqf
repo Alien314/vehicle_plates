@@ -10,4 +10,4 @@ if (local _unit) then {
     [_unit, true, true] call ace_rearm_fnc_dropAmmo;
 };
 
-[QEGVAR(main,addPlate), [_vehicle], [_vehicle]] call CBA_fnc_targetEvent;
+_this call EFUNC(main,addPlateActionSuccess)

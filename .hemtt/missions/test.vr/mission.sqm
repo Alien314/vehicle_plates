@@ -8,14 +8,14 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=32;
+		nextID=33;
 	};
 	class Camera
 	{
-		pos[]={6179.146,13.362698,5214.3594};
-		dir[]={0.95808393,-0.28563449,-0.023684926};
-		up[]={0.28556618,0.95833486,-0.0070590577};
-		aside[]={-0.02471396,2.3872417e-08,-0.99973023};
+		pos[]={6182.1528,13.803532,5214.3926};
+		dir[]={0.96350265,-0.25484237,-0.082166336};
+		up[]={0.25393313,0.96697909,-0.021655591};
+		aside[]={-0.084971115,2.3801113e-07,-0.99639666};
 	};
 };
 binarizationWanted=0;
@@ -54,13 +54,14 @@ addons[]=
 	"A3_Air_F_Heli_Light_01",
 	"A3_Soft_F_Gamma_Truck_01",
 	"ace_cargo",
-	"ace_rearm"
+	"ace_rearm",
+	"diw_vehicle_plates_ace_rearm_compat"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=25;
+		items=26;
 		class Item0
 		{
 			className="A3_Soft_F";
@@ -236,6 +237,12 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
+		class Item25
+		{
+			className="diw_vehicle_plates_ace_rearm_compat";
+			name="Vehicle Plates System - ACE Rearm Compat";
+			author="diwako";
+		};
 	};
 };
 randomSeed=14126009;
@@ -266,7 +273,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=15;
+		items=16;
 		class Item0
 		{
 			dataType="Object";
@@ -1047,6 +1054,21 @@ class Mission
 			};
 			id=26;
 			type="B_Truck_01_ammo_F";
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6170.9985,5.0604424,5200.668};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=32;
+			type="diw_vehicle_plates_ace_rearm_compat_armorPlate";
 		};
 	};
 };

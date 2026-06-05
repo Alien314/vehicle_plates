@@ -2,7 +2,7 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        units[] = {};
+        units[] = {QGVAR(armorPlate)};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"diw_vehicle_plates_main", "ace_rearm", "ace_repair"};
