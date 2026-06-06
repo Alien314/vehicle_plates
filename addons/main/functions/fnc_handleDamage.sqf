@@ -69,6 +69,9 @@ if !(_projectile in ["ace_ammoExplosion", "ACE_ammoExplosionLarge"]) then {
             _retDamage = _this call ace_vehicle_damage_fnc_handleDamage;
         };
     };
+    if (_context isEqualTo 2) then {
+        _vehicle setVariable [QGVAR(lastDamageTaken), cba_missionTime];
+    };
 };
 
 _retDamage

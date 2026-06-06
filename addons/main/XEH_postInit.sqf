@@ -3,21 +3,34 @@
 if (is3DEN) exitWith {};
 if !(GVAR(enabled)) exitWith {};
 
+GVAR(trackedVehicles) = [];
+
 ["CBA_settingsInitialized", {
     {
         [_x, "Local", {
             params ["_veh", "_isLocal"];
-            if (_isLocal || {!alive _veh || {GVAR(numMaxPlates) isEqualTo 0}}) exitWith {};
+            if (!alive _veh || {NO_PLATES_ALLOWED(_veh)}) exitWith {};
+            if (_isLocal) exitWith {
+                GVAR(trackedVehicles) pushBackUnique _veh;
+            };
+
             private _plateHp = (_veh getVariable [QGVAR(plates), nil]);
             if !(isNil "_plateHp") then {
-                [QGVAR(plateSync), [_veh, _plateHp], [_veh]] call CBA_fnc_targetEvent;
+                [QGVAR(plateSync), [_veh, _plateHp, _veh getVariable [QGVAR(lastDamageTaken), -1]], [_veh]] call CBA_fnc_targetEvent;
             };
+            _veh setVariable [QGVAR(lastDamageTaken), nil];
+            _veh setVariable [QGVAR(syncedPlates), nil];
+            _veh setVariable [QGVAR(lastToughnessTick), nil];
+            GVAR(trackedVehicles) = GVAR(trackedVehicles) - [_veh];
         }, true, [], true] call CBA_fnc_addClassEventHandler;
 
         [_x, "Init", FUNC(initVehicle), true, [], true] call CBA_fnc_addClassEventHandler;
     } forEach VEH_BASE_CLASSES;
     if (hasInterface) then {
         [] call FUNC(initPlates);
+    };
+    if (GVAR(plateToughness)) then {
+        [{call FUNC(toughnessPFH)}, 0.1] call CBA_fnc_addPerFrameHandler;
     };
 }] call CBA_fnc_addEventHandler;
 
@@ -41,8 +54,11 @@ if !(GVAR(enabled)) exitWith {};
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(plateSync), {
-    params ["_veh", "_plateHp"];
+    params ["_veh", "_plateHp", ["_lastDamageTaken", -1]];
     _veh setVariable [QGVAR(plates), _plateHp];
+    if (local _veh && _lastDamageTaken isNotEqualTo -1) then {
+        _veh setVariable [QGVAR(lastDamageTaken), _lastDamageTaken];
+    };
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(switchMove), {(_this select 0) switchMove (_this select 1)}] call CBA_fnc_addEventHandler;
@@ -97,7 +113,7 @@ ctrlDelete (uiNamespace getVariable [QGVAR(mainControl), controlNull]);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(updateUI), {
-    params ["_veh"];
+    params ["_veh", ["_updateTime", 0.1]];
     private _player = [] call CBA_fnc_currentUnit;
     if !(_player in _veh) exitWith {};
     private _role = assignedVehicleRole _player;

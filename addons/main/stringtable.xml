@@ -209,5 +209,41 @@
         <Key ID="STR_diw_vehicle_plates_main_plateItemName">
             <English>Vehicle Armor Plate</English>
         </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughness">
+            <English>Enable Plate Toughness</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughness_desc">
+            <English>Vehicles can regen plates over time, starts after delay while not taking damage. A vehicle MUST be occupied by an alive crew</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessRegenCount">
+            <English>Number of Tough Plates</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessRegenCount_desc">
+            <English>How many plates are affected by the toughness regen. Limited by plates applyable by maximum allowed plates on a vehicle.</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessDelay">
+            <English>Plate Toughness Delay</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessDelay_desc">
+            <English>Number of seconds after damage is taken before toughness starts to regen armor plates.</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateRegenSpeed">
+            <English>Toughness Regen Speed</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateRegenSpeed_desc">
+            <English>Time in seconds it takes to regenerate a single plate from 0 to full.</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessAllowAI">
+            <English>Allow AI</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessAllowAI_desc">
+            <English>Allows vehicles which only have AI as crew to regenerate plates.</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessDelayBetweenPlates">
+            <English>Delay between plate regeneration</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessDelayBetweenPlates_desc">
+            <English>Time in seconds how long it takes to resume the plate generation after a plate finished generating.</English>
+        </Key>
     </Package>
 </Project>

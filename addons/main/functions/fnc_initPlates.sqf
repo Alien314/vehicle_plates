@@ -13,7 +13,6 @@ if (isNull _ctrlGroup) then {
     uiNamespace setVariable [QGVAR(mainControl), _ctrlGroup];
 
     private _ctrlx = (profileNamespace getVariable ["IGUI_GRID_VEHICLE_X", (safeZoneX + 0.5 * ( ((safeZoneW / safeZoneH) min 1.2) / 40))]);
-    // private _ctrly = (profileNamespace getVariable ["IGUI_GRID_VEHICLE_Y", (safeZoneY + 0.5 * ( ( ((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25))]);
     private _ctrly = 3.3 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25) + (profileNamespace getVariable ["IGUI_GRID_VEHICLE_Y", (safeZoneY + 0.5 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25))])+ // Y pos of toggles background
         GVAR(fullHeight) + // height of our own control
         ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25) + // height vehicle title

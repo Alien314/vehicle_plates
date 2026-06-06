@@ -45,6 +45,10 @@ if (local _vehicle) then {
         };
         _vehicle setVariable [QGVAR(plates), _plates];
     };
+
+    if !NO_PLATES_ALLOWED(_vehicle) then {
+        GVAR(trackedVehicles) pushBack _vehicle;
+    };
 };
 
 if !(isNil {_vehicle getVariable QGVAR(handleDamage)}) exitWith {};

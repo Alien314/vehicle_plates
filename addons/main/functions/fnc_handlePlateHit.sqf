@@ -9,7 +9,6 @@ if (_hitpointArmor > 0) then {
 };
 
 _addedDamage = ((sqrt(_addedDamage * 20.0) / _invMass) / 100000) * 3.1622;
-systemChat str _addedDamage;
 
 ([_vehicle, _addedDamage, _projectile] call FUNC(handleArmorDamage)) params ["_restDamage", "_receivedDamage"];
 

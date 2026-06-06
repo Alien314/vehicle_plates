@@ -10,3 +10,4 @@ PREP(addPlateActionCancel);
 PREP(addPlateActionSuccess);
 PREP(addPlate);
 PREP(holdActionAdd);
+PREP(toughnessPFH);
