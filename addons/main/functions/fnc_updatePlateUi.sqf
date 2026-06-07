@@ -25,7 +25,9 @@ private _count = count _plates;
     } else {
         _pos set [2, 0];
     };
-    _ctrl ctrlSetPosition _pos;
+    if ((ctrlPosition _ctrl) isNotEqualTo _pos) then {
+        _ctrl ctrlSetPosition _pos;
+    };
     _ctrl ctrlSetFade 0;
     _ctrl ctrlCommit 0.1;
     _ctrlBack ctrlSetFade 0;

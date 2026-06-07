@@ -221,6 +221,9 @@
         <Key ID="STR_diw_vehicle_plates_main_plateToughnessRegenCount_desc">
             <English>How many plates are affected by the toughness regen. Limited by plates applyable by maximum allowed plates on a vehicle.</English>
         </Key>
+        <Key ID="STR_diw_vehicle_plates_main_plateToughnessRegenCount_3den_desc">
+            <English>How many plates can this vehicle generate using the toughness feature. Limited by plates applyable by maximum allowed plates on a vehicle. -1 will use the general CBA setting value</English>
+        </Key>
         <Key ID="STR_diw_vehicle_plates_main_plateToughnessDelay">
             <English>Plate Toughness Delay</English>
         </Key>
@@ -244,6 +247,18 @@
         </Key>
         <Key ID="STR_diw_vehicle_plates_main_plateToughnessDelayBetweenPlates_desc">
             <English>Time in seconds how long it takes to resume the plate generation after a plate finished generating.</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_zeus_module_plate">
+            <English>Fill vehicle with plates</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_zeus_invalid_target">
+            <English>Invalid target selected. Target might not allow adding plates</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_zeus_plates_applied">
+            <English>Plates applied to %1</English>
+        </Key>
+        <Key ID="STR_diw_vehicle_plates_main_zen_edit">
+            <English>Edit vehicle plates</English>
         </Key>
     </Package>
 </Project>

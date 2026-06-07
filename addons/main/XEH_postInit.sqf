@@ -61,6 +61,46 @@ GVAR(trackedVehicles) = [];
     };
 }] call CBA_fnc_addEventHandler;
 
+[QGVAR(fillPlates), {
+    params ["_veh"];
+    if !(alive _veh) exitWith {};
+    private _plates = [];
+    for "_i" from 1 to MAX_VEH_PLATES(_veh) do {
+        _plates pushBack GVAR(maxPlateHealth);
+    };
+    _veh setVariable [QGVAR(plates), _plates];
+    [QGVAR(plateSync), [_veh, _plates]] call CBA_fnc_globalEvent;
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR(editVehicle), {
+    params ["_vehicle", "_args"];
+    _args params ["_platesNum", "_toughPlatesNum"];
+
+    _platesNum = round _platesNum;
+    _toughPlatesNum = round _toughPlatesNum;
+
+    if (_toughPlatesNum > -1) then {
+        _vehicle setVariable [QGVAR(plateToughnessRegenCount), _toughPlatesNum, true];
+    } else {
+        _vehicle setVariable [QGVAR(plateToughnessRegenCount), nil, true];
+    };
+
+
+    if (MAX_VEH_PLATES(_vehicle) isNotEqualTo _platesNum) then {
+        if ((count (_vehicle getVariable [QGVAR(plates), []])) > _platesNum) then {
+            private _plates = (_vehicle getVariable [QGVAR(plates), []]) select [0, _platesNum];
+            _vehicle setVariable [QGVAR(plates), _plates];
+        };
+        if (_platesNum > -1) then {
+            _vehicle setVariable [QGVAR(numPlates), _platesNum, true];
+        } else {
+            _vehicle setVariable [QGVAR(numPlates), [_vehicle] call FUNC(getMaxPlatesForType), true];
+        };
+
+        [QGVAR(plateSync), [_vehicle, _vehicle getVariable [QGVAR(plates), []]], crew _vehicle] call CBA_fnc_targetEvent;
+    };
+}] call CBA_fnc_addEventHandler;
+
 [QGVAR(switchMove), {(_this select 0) switchMove (_this select 1)}] call CBA_fnc_addEventHandler;
 
 if !(hasInterface) exitWith {};
@@ -146,5 +186,30 @@ if !(isNil "diw_armor_plates_main_fnc_showDamageFeedbackMarker") then {
     }] call CBA_fnc_addEventHandler;
 };
 
+if !(isNil "zen_custom_modules_fnc_register") then {
+    [LLSTRING(category), LLSTRING(zen_edit),
+        {
+            params ["", "_vehicle"];
+            private _isObj = _vehicle isEqualType objNull;
+            private _isPerson = (_isObj && {(_vehicle isKindOf "CAManBase")});
+            if (_isPerson && _isObj) then {_vehicle = vehicle _vehicle};
+            if (!_isObj || {isNull _vehicle} || {!alive _vehicle}) exitWith {
+                [objNull, LLSTRING(zeus_invalid_target)] call BIS_fnc_showCuratorFeedbackMessage;
+            };
+
+            [LLSTRING(zen_edit), [
+                    ["SLIDER", [LLSTRING(numMaxPlates_3den), LLSTRING(numMaxPlates_3den_desc)], [-1, MAX_PLATES_SETTING, MAX_VEH_PLATES(_vehicle), 0]],
+                    ["SLIDER", [LLSTRING(plateToughnessRegenCount), LLSTRING(plateToughnessRegenCount_3den_desc)], [-1, MAX_PLATES_SETTING, (_vehicle getVariable [QGVAR(plateToughnessRegenCount), GVAR(plateToughnessRegenCount)]), 0]]
+                ],
+                {
+                    params ["_dialog", "_args"];
+                    _args params ["_vehicle"];
+
+                    [QGVAR(editVehicle), [_vehicle, _dialog], _vehicle] call CBA_fnc_targetEvent;
+                }, {}, [_vehicle]
+            ] call zen_dialog_fnc_create;
+        }
+    ] call zen_custom_modules_fnc_register;
+};
 
 #include "userActions.inc.sqf"

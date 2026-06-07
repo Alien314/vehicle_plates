@@ -14,6 +14,4 @@
 
 #include "\z\diw_vehicle_plates\addons\main\script_macros.hpp"
 
-#define TYPE_UNIFORM 801
-#define HEIGHTMOD_HPBARS 0.5
-#define PLATE_MASS 35
+#define MAX_PLATES_SETTING 10

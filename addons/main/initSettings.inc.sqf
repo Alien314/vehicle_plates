@@ -59,7 +59,7 @@ _category = [_header, LLSTRING(subCategoryArmorPlates)];
     "SLIDER",
     [LLSTRING(numMaxPlatesTank), LLSTRING(numMaxPlates_desc)],
     _category,
-    [0, 10, 3, 0],
+    [0, MAX_PLATES_SETTING, 3, 0],
     true,
     {
         params ["_value"];
@@ -72,7 +72,7 @@ _category = [_header, LLSTRING(subCategoryArmorPlates)];
     "SLIDER",
     [LLSTRING(numMaxPlatesAPC), LLSTRING(numMaxPlates_desc)],
     _category,
-    [0, 10, 2, 0],
+    [0, MAX_PLATES_SETTING, 2, 0],
     true,
     {
         params ["_value"];
@@ -85,7 +85,7 @@ _category = [_header, LLSTRING(subCategoryArmorPlates)];
     "SLIDER",
     [LLSTRING(numMaxPlatesCar), LLSTRING(numMaxPlates_desc)],
     _category,
-    [0, 10, 2, 0],
+    [0, MAX_PLATES_SETTING, 2, 0],
     true,
     {
         params ["_value"];
@@ -98,7 +98,7 @@ _category = [_header, LLSTRING(subCategoryArmorPlates)];
     "SLIDER",
     [LLSTRING(numMaxPlatesAir), LLSTRING(numMaxPlates_desc)],
     _category,
-    [0, 10, 1, 0],
+    [0, MAX_PLATES_SETTING, 1, 0],
     true,
     {
         params ["_value"];
@@ -111,7 +111,7 @@ _category = [_header, LLSTRING(subCategoryArmorPlates)];
     "SLIDER",
     [LLSTRING(numMaxPlatesShip), LLSTRING(numMaxPlates_desc)],
     _category,
-    [0, 10, 1, 0],
+    [0, MAX_PLATES_SETTING, 1, 0],
     true,
     {
         params ["_value"];
@@ -179,7 +179,7 @@ _category = [_header, LLSTRING(subCategoryArmorPlates)];
     "SLIDER",
     [LLSTRING(plateToughnessRegenCount), LLSTRING(plateToughnessRegenCount_desc)],
     _category,
-    [1, 10, 1, 0],
+    [1, MAX_PLATES_SETTING, 1, 0],
     true
 ] call CBA_fnc_addSetting;
 

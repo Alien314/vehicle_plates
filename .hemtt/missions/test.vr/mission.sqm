@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6182.1528,13.803532,5214.3926};
-		dir[]={0.96350265,-0.25484237,-0.082166336};
-		up[]={0.25393313,0.96697909,-0.021655591};
-		aside[]={-0.084971115,2.3801113e-07,-0.99639666};
+		pos[]={6180.0938,13.803532,5214.3745};
+		dir[]={0.97876263,-0.19535968,-0.062165521};
+		up[]={0.19496748,0.98073226,-0.012383247};
+		aside[]={-0.06338685,-3.6816346e-09,-0.99799085};
 	};
 };
 binarizationWanted=0;
@@ -249,6 +249,103 @@ randomSeed=14126009;
 class ScenarioData
 {
 	author="diwako";
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="cba_settings_hash";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=4;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="#CBA_HASH#";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="ARRAY";
+								class value
+								{
+									items=1;
+									class Item0
+									{
+										class data
+										{
+											singleType="STRING";
+											value="diw_vehicle_plates_main_nummaxplatesapc";
+										};
+									};
+								};
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="ARRAY";
+								class value
+								{
+									items=1;
+									class Item0
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=2;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								nil=1;
+								singleType="ANY";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {

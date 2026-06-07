@@ -11,27 +11,7 @@ if ((toLowerANSI typeOf _vehicle) in GVAR(vehBlacklist)) exitWith {
 
 if (local _vehicle) then {
     if (isNil {_vehicle getVariable QGVAR(numPlates)}) then {
-        if (_vehicle isKindOf "Tank") then {
-            _vehicle setVariable [QGVAR(numPlates), GVAR(numMaxPlatesTank), true];
-        } else {
-            if (_vehicle isKindOf "Car") then {
-                if (_vehicle isKindOf "Wheeled_Apc_F" || _vehicle isKindOf "gm_wheeled_APC_base") then {
-                    _vehicle setVariable [QGVAR(numPlates), GVAR(numMaxPlatesAPC), true];
-                } else {
-                    _vehicle setVariable [QGVAR(numPlates), GVAR(numMaxPlatesCar), true];
-                };
-            } else {
-                if (_vehicle isKindOf "Air") then {
-                    _vehicle setVariable [QGVAR(numPlates), GVAR(numMaxPlatesAir), true];
-                } else {
-                    if (_vehicle isKindOf "Ship") then {
-                        _vehicle setVariable [QGVAR(numPlates), GVAR(numMaxPlatesShip), true];
-                    } else {
-                        _vehicle setVariable [QGVAR(numPlates), 0, true];
-                    };
-                };
-            };
-        };
+        _vehicle setVariable [QGVAR(numPlates), [_vehicle] call FUNC(getMaxPlatesForType), true];
     } else {
         if !((_vehicle getVariable QGVAR(numPlates)) isEqualType 0) then {
             _vehicle setVariable [QGVAR(numPlates), 0, true];

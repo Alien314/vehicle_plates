@@ -28,6 +28,17 @@ class Cfg3DEN {
                         condition = "objectVehicle";
                         typeName = "NUMBER";
                     };
+                    class GVAR(plateToughnessRegenCount) {
+                        displayName = CSTRING(plateToughnessRegenCount);
+                        tooltip = CSTRING(plateToughnessRegenCount_3den_desc);
+                        property = QUOTE(plateToughnessRegenCount);
+                        control = "EditShort";
+                        expression = QUOTE(if (_value >= 0) then {_this setVariable [ARR_3(QQGVAR(plateToughnessRegenCount),round _value,true)]});
+                        defaultValue = -1;
+                        validate = "number";
+                        condition = "objectVehicle";
+                        typeName = "NUMBER";
+                    };
                 };
             };
         };

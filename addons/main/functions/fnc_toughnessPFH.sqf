@@ -40,8 +40,7 @@ if (_plateIndex isEqualTo -1) then {
 
 private _newPlateHP = (_plates select _plateIndex) + _hpToAdd;
 
-systemChat format ["Adding HP: %1 | %2 -> %3 |", _hpToAdd, _plates select _plateIndex, GVAR(maxPlateHealth)];
-diw_debug = _hpToAdd;
+// systemChat format ["Adding HP: %1 | %2 -> %3 |", _hpToAdd, _plates select _plateIndex, GVAR(maxPlateHealth)];
 
 private _sync = false;
 if (_newPlateHP > GVAR(maxPlateHealth)) then {
@@ -50,7 +49,7 @@ if (_newPlateHP > GVAR(maxPlateHealth)) then {
 
     _vehicle setVariable [QGVAR(lastDamageTaken), cba_missionTime + GVAR(plateToughnessDelayBetweenPlates) -  GVAR(plateToughnessDelay)];
     _vehicle setVariable [QGVAR(lastToughnessTick), nil];
-    systemChat ("Waiting for between plate cooldown time: " + str GVAR(plateToughnessDelayBetweenPlates));
+    // systemChat ("Waiting for between plate cooldown time: " + str GVAR(plateToughnessDelayBetweenPlates));
 };
 
 _plates set [_plateIndex, _newPlateHP];
