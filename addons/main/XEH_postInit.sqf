@@ -23,8 +23,12 @@ GVAR(trackedVehicles) = [];
             _veh setVariable [QGVAR(lastToughnessTick), nil];
             GVAR(trackedVehicles) = GVAR(trackedVehicles) - [_veh];
         }, true, [], true] call CBA_fnc_addClassEventHandler;
+        [{
+            [_this, "InitPost", {
+                [FUNC(initVehicle), _this] call CBA_fnc_execNextFrame;
+            }, true, [], true] call CBA_fnc_addClassEventHandler;
 
-        [_x, "Init", FUNC(initVehicle), true, [], true] call CBA_fnc_addClassEventHandler;
+        }, _x, 0.25] call CBA_fnc_waitAndExecute;
     } forEach VEH_BASE_CLASSES;
     if (hasInterface) then {
         [] call FUNC(initPlates);
@@ -85,20 +89,21 @@ GVAR(trackedVehicles) = [];
         _vehicle setVariable [QGVAR(plateToughnessRegenCount), nil, true];
     };
 
-
     if (MAX_VEH_PLATES(_vehicle) isNotEqualTo _platesNum) then {
         if ((count (_vehicle getVariable [QGVAR(plates), []])) > _platesNum) then {
             private _plates = (_vehicle getVariable [QGVAR(plates), []]) select [0, _platesNum];
             _vehicle setVariable [QGVAR(plates), _plates];
         };
-        if (_platesNum > -1) then {
-            _vehicle setVariable [QGVAR(numPlates), _platesNum, true];
-        } else {
-            _vehicle setVariable [QGVAR(numPlates), [_vehicle] call FUNC(getMaxPlatesForType), true];
-        };
-
-        [QGVAR(plateSync), [_vehicle, _vehicle getVariable [QGVAR(plates), []]], crew _vehicle] call CBA_fnc_targetEvent;
     };
+    if (_platesNum > -1) then {
+        _vehicle setVariable [QGVAR(numPlates), _platesNum, true];
+    } else {
+        _vehicle setVariable [QGVAR(numPlates), [_vehicle] call FUNC(getMaxPlatesForType), true];
+    };
+    [{
+        params ["_vehicle"];
+        [QGVAR(plateSync), [_vehicle, _vehicle getVariable [QGVAR(plates), []]], crew _vehicle] call CBA_fnc_targetEvent;
+    }, [_vehicle], 0.25] call CBA_fnc_waitAndExecute;
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(switchMove), {(_this select 0) switchMove (_this select 1)}] call CBA_fnc_addEventHandler;
@@ -153,19 +158,22 @@ ctrlDelete (uiNamespace getVariable [QGVAR(mainControl), controlNull]);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(updateUI), {
-    params ["_veh", ["_updateTime", 0.1]];
+    params ["_veh"];
     private _player = [] call CBA_fnc_currentUnit;
     if !(_player in _veh) exitWith {};
+    if !(local _veh) then {
+        systemChat format ["%1 [VPS DEBUG] UI update event received for %2 vehicle!", time, ["remote", "local"] select (local _veh)];
+    };
     private _role = assignedVehicleRole _player;
     if (_role isNotEqualTo [] && {(toLowerANSI (_role select 0)) in ["driver", "turret"]}) then {
-        [_veh] call FUNC(updatePlateUi);
+        [] call FUNC(initPlates);
     } else {
         [objNull] call FUNC(updatePlateUi);
     };
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(localHit), {
-    params ["_veh", "_source", "_instigator"];
+    params ["_veh", "_instigator"];
     [QGVAR(plateSync), [_veh, _veh getVariable [QGVAR(plates), []]], crew _veh] call CBA_fnc_targetEvent;
 
     if !(isNil "diw_armor_plates_main_fnc_showDamageFeedbackMarker") then {
@@ -204,8 +212,9 @@ if !(isNil "zen_custom_modules_fnc_register") then {
                 {
                     params ["_dialog", "_args"];
                     _args params ["_vehicle"];
+                    _dialog params ["_platesNum", "_toughPlatesNum"];
 
-                    [QGVAR(editVehicle), [_vehicle, _dialog], _vehicle] call CBA_fnc_targetEvent;
+                    [QGVAR(editVehicle), [_vehicle, [round _platesNum, round _toughPlatesNum]], _vehicle] call CBA_fnc_targetEvent;
                 }, {}, [_vehicle]
             ] call zen_dialog_fnc_create;
         }

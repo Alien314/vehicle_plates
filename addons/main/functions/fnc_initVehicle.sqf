@@ -10,6 +10,7 @@ if ((toLowerANSI typeOf _vehicle) in GVAR(vehBlacklist)) exitWith {
 };
 
 if (local _vehicle) then {
+    systemChat format ["%1 [VPS DEBUG] initializing vehicle: %2", time, getText (configOf _vehicle >> "displayName")];
     if (isNil {_vehicle getVariable QGVAR(numPlates)}) then {
         _vehicle setVariable [QGVAR(numPlates), [_vehicle] call FUNC(getMaxPlatesForType), true];
     } else {
@@ -28,6 +29,10 @@ if (local _vehicle) then {
 
     if !NO_PLATES_ALLOWED(_vehicle) then {
         GVAR(trackedVehicles) pushBack _vehicle;
+    };
+
+    if (((crew _vehicle) select {isPlayer _x}) isNotEqualTo [])  then {
+        [QGVAR(plateSync), [_vehicle, _vehicle getVariable [QGVAR(plates), []]], crew _vehicle] call CBA_fnc_targetEvent;
     };
 };
 

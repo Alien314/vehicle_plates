@@ -36,6 +36,10 @@ if !(_projectile in ["ace_ammoExplosion", "ACE_ammoExplosionLarge"]) then {
         if (_currentFrameArray isEqualTo []) then {
             [{
                 params ["_vehicle", "_processingFrame"];
+                [{
+                    params ["_vehicle", "", "_source", "_instigator"];
+                    [QGVAR(localHit), [_vehicle, [_source, _instigator] select (isNull _source)]] call CBA_fnc_localEvent;
+                }, _this] call CBA_fnc_execNextFrame;
 
                 private _hitHash = _vehicle getVariable QGVAR(hitHash);
                 private _hitArray = _hitHash deleteAt _processingFrame;
@@ -56,8 +60,7 @@ if !(_projectile in ["ace_ammoExplosion", "ACE_ammoExplosionLarge"]) then {
 
                     if !([_vehicle, _hitPoint, _hitIndex, _selection, _addedDamage, _projectile, _source, _instigator] call FUNC(handlePlateHit)) exitWith {};
                 } forEachReversed _hitArray;
-            }, [_vehicle, diag_frameNo]] call CBA_fnc_execNextFrame;
-            [QGVAR(localHit), [_vehicle, _source, _instigator]] call CBA_fnc_localEvent;
+            }, [_vehicle, diag_frameNo, _source, _instigator]] call CBA_fnc_execNextFrame;
         };
 
         _currentFrameArray pushBack _this;

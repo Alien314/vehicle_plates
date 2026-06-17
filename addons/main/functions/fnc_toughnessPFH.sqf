@@ -55,7 +55,13 @@ if (_newPlateHP > GVAR(maxPlateHealth)) then {
 _plates set [_plateIndex, _newPlateHP];
 _vehicle setVariable [QGVAR(plates), _plates];
 
+if (!_sync) then {
+    _sync = (time - (_vehicle getVariable [QGVAR(lastToughPlateSync), 0])) > 2;
+};
+
 if (_sync) then {
+    systemChat format ["%1 [VPS DEBUG] Toughness regen syncing plates!", time];
+    _vehicle setVariable [QGVAR(lastToughPlateSync), time];
     [QGVAR(plateSync), [_vehicle, _plates], crew _vehicle] call CBA_fnc_targetEvent;
 } else {
     [QGVAR(updateUI), [_vehicle, 0]] call CBA_fnc_localEvent;

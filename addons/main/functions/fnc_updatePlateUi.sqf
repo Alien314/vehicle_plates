@@ -4,6 +4,7 @@ params ["_vehicle"];
 // get out of vehicle event
 private _ctrlGroup = uiNamespace getVariable [QGVAR(mainControl), controlNull];
 if (isNull _vehicle) exitWith {
+    systemChat format ["%1 [VPS DEBUG] Hiding VPS UI", time];
     _ctrlGroup ctrlSetFade 1;
     _ctrlGroup ctrlCommit 0.1;
 };
