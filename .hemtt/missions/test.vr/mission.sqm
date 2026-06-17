@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=33;
+		nextID=34;
 	};
 	class Camera
 	{
@@ -370,7 +370,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			dataType="Object";
@@ -500,6 +500,7 @@ class Mission
 					class Attributes
 					{
 						init="this setUnitTrait [""engineer"", true]";
+						name="dude1";
 						isPlayer=1;
 						class Inventory
 						{
@@ -762,13 +763,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6200.5112,5.0014391,5212.5342};
-						angles[]={0,1.5468116,0};
+						position[]={6200.5112,5.0014391,5212.5337};
+						angles[]={0,1.5468155,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						name="dude2";
+						isPlayable=1;
 						class Inventory
 						{
 							class primaryWeapon
@@ -890,6 +893,36 @@ class Mission
 					};
 					id=11;
 					type="B_soldier_AT_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male09ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1.05;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
@@ -902,7 +935,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={6196.8848,5,5214.4722};
+				position[]={6197.2998,5,5216.5664};
 			};
 			id=13;
 			type="ModuleCurator_F";
@@ -917,7 +950,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="";
+							value="dude1";
 						};
 					};
 				};
@@ -1166,6 +1199,72 @@ class Mission
 			};
 			id=32;
 			type="diw_vehicle_plates_ace_rearm_compat_armorPlate";
+		};
+		class Item16
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6197.5889,5,5212.4458};
+			};
+			id=33;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="dude2";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
 		};
 	};
 };
