@@ -21,3 +21,6 @@ tools/stringtableChecker/node_modules
 *.sqfc
 
 .hemttout/
+
+*.hemttprivatekey
+/privatekeypassword.txt

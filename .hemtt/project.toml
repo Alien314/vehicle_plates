@@ -25,6 +25,10 @@ exclude = ["*.psd", "*.png", "*.tga"]
 key_name = "{{prefix}}_{{version}}"
 authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
 
+[signing]
+private_key_hash = "daa9714e4e603a3b70699035633f237c3fdfbd1c"
+# If Brett sees this, this is only temporary until stuff is tested and fixed!
+
 [hemtt.release]
 folder = "diw_vehicle_plates"
 
