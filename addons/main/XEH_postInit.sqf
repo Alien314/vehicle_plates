@@ -123,7 +123,11 @@ ctrlDelete (uiNamespace getVariable [QGVAR(mainControl), controlNull]);
     params ["_unit", "_role", "_vehicle", "_turret"];
     if (_unit isNotEqualTo ([] call CBA_fnc_currentUnit)) exitWith {};
     if !((toLowerANSI _role) in ["driver", "gunner", "commander"]) exitWith {};
-    [] call FUNC(initPlates);
+    if (local _vehicle) then {
+        [] call FUNC(initPlates);
+    } else {
+        [QGVAR(requestPlateSync), [_vehicle, player], [_vehicle]] call CBA_fnc_targetEvent;
+    };
 }] call CBA_fnc_addClassEventHandler;
 
 ["CAManBase", "GetOutMan", {
