@@ -22,7 +22,9 @@ if (isNull _ctrlGroup) then {
     _ctrlGroup ctrlSetBackgroundColor [1, 0, 0, 0];
     _ctrlGroup ctrlSetText "Group";
     _ctrlGroup ctrlCommit 0;
+    _ctrlGroup setVariable [QGVAR(defaultPos), [_ctrlx, _ctrly, GVAR(fullWidth), GVAR(fullHeight)]];
 };
+[QGVAR(setUICtrlGrp), [_ctrlGroup]] call CBA_fnc_localEvent;
 
 private _plateCtrls = uiNamespace getVariable [QGVAR(plateControls), []];
 private _count = count _plateCtrls;

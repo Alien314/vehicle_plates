@@ -44,6 +44,12 @@ workshop = [
 parameters = ["-world=empty"]
 mission = "test.vr"
 
+[hemtt.launch.acre]
+extends = "default"
+workshop = [
+    "751965892", # ACRE2
+]
+
 [lints.stringtables.sorted]
 options.only-lang = true
 
