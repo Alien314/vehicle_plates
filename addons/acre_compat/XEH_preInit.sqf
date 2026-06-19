@@ -9,11 +9,11 @@ if (hasInterface) then {
             params ["_ctrlGroup"];
             if (isNull objectParent ([] call CBA_fnc_currentUnit)) exitWith {};
             private _position = _ctrlGroup getVariable QEGVAR(main,defaultPos);
-            private _ctrl = uiNamespace getVariable ["ACRE_VehicleInfo", controlNull];
-            if (isNull _ctrl) then {
+            private _acreCtrl = uiNamespace getVariable ["ACRE_VehicleInfo", controlNull];
+            if (isNull _acreCtrl) then {
                 _ctrlGroup ctrlSetPosition _position;
             } else {
-                private _acreUIHeight = profileNamespace getVariable ["IGUI_grid_ACRE_vehicleInfo_H", ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)];
+                private _acreUIHeight = (ctrlPosition _acreCtrl) select 3;
                 _ctrlGroup ctrlSetPosition (_position vectorAdd [0, _acreUIHeight, 0, 0]);
             };
             _ctrlGroup ctrlCommit 0.1;
