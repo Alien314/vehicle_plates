@@ -2,6 +2,9 @@
 
 params ["_vehicle", "_hitPoint", "_hitIndex", "_selection", "_addedDamage", "_projectile", "_source", "_instigator"];
 
+// filter ERA specifically because it's damage numbers are much higher and can wipe plates in a single hit
+if ("era" in (toLower _hitPoint)) exitWith {true};
+
 private _hitpointArmor = (getNumber (configOf _vehicle >> "HitPoints" >> _hitPoint >> "armor"));
 private _invMass = 1 / getMass _vehicle;
 if (_hitpointArmor > 0) then {
